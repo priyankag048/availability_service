@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+
 const router = express.Router();
 
 const { ALLOW_DELETE } = process.env;
@@ -25,6 +26,5 @@ if (ALLOW_DELETE === 'true') {
     });
   });
 }
-
 
 module.exports = router;
