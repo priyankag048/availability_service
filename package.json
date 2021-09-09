@@ -10,8 +10,9 @@
   },
   "scripts": {
     "start": "yarn node src/server.js",
-    "test": "yarn jest test",
-    "lint": "yarn eslint"
+    "test": "jest",
+    "lint": "yarn eslint",
+    "calculateCoverage": "node bin/calculateCoverage.js"
   },
   "devDependencies": {
     "chai": "^4.3.4",

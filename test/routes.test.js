@@ -12,42 +12,50 @@ describe('Employee routes', () => {
   beforeAll(() => {
     jest.spyOn(console, 'log').mockImplementation(() => jest.fn())
   });
-  it('should return 200 status with GET employees', (done) => {
-    chai
-    .request(server)
-    .get('/api/v1/employees')
-    .end((err, res) => {
-      expect(err).toBe(null);
-      expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({
-        status: 'success',
-        message: 'GET employees'
+  describe('GET employees', () => {
+    it('should return 200 status', (done) => {
+      chai
+      .request(server)
+      .get('/api/v1/employees')
+      .end((err, res) => {
+        expect(err).toBe(null);
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toEqual({
+          status: 'success',
+          message: 'GET employees'
+        });
+        done();
       });
-      done();
     });
   });
-  it('should return 200 status with POST employees', (done) => {
-    chai
-    .request(server)
-    .post('/api/v1/employees')
-    .end((err, res) => {
-      expect(err).toBe(null);
-      expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({
-        status: 'success',
-        message: 'POST employees'
+  describe('POST employess', () => {
+    it('should return 200 status', (done) => {
+      chai
+      .request(server)
+      .post('/api/v1/employees')
+      .end((err, res) => {
+        expect(err).toBe(null);
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toEqual({
+          status: 'success',
+          message: 'POST employees'
+        });
+        done();
       });
-      done();
     });
-  });
-  it('should return 200 status with DELETE employees', (done) => {
-    chai
-    .request(server)
-    .delete('/api/v1/employees')
-    .end((err, res) => {
-      expect(err).toBe(null);
-      expect(res.statusCode).toEqual(404);
-      done();
+  })
+
+  describe('DELETE employess', () => {
+    it('should return 404 status if ALLOW_DELETE is false', (done) => {
+      chai
+      .request(server)
+      .delete('/api/v1/employees')
+      .end((err, res) => {
+        expect(err).toBe(null);
+        expect(res.statusCode).toEqual(404);
+        done();
+      });
     });
-  });
+  })
+  
 });

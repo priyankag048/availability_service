@@ -8,4 +8,4 @@ lerna-debug.log*
 
 # modules
 node_modules
-bin
+coverage
