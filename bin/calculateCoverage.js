@@ -5,7 +5,7 @@ const path = require('path');
 const { promisify } = require('util');
 
 const readFile = promisify(fs.readFile);
-const coveragePath = path.join(__dirname, '..', 'coverage/coverage-summary.json' )
+const coveragePath = path.join(__dirname, '..', 'coverage/coverage-summary.json');
 const isCoverageFileAvailable = fs.existsSync(coveragePath);
 if (isCoverageFileAvailable) {
   readFile(coveragePath)
@@ -16,7 +16,7 @@ if (isCoverageFileAvailable) {
       for (const record of records) {
         totalPct += +report.total[record].pct;
       }
-      process.stdout.write(`Coverage: ${totalPct / records.length}%\n`);
+      process.stdout.write(`${totalPct / records.length}\n`);
     })
     .catch((err) => {
       process.stdout.write(`${err}\n`);
