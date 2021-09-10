@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: availability-app
+  namespace: availability
+spec:
+  template:
+    metadata:
+      name: availability-app
+      namespace: availability
+      labels:
+        env: {{ .Values.deployment.labels.env }}
+        appName: availability-app
+    spec:
+      containers:
+      - name: availability-container
+        image: {{ .Values.deployment.image }}
+        envFrom:
+        - configMapRef:
+            name: availability-config
+        - secretRef:
+            name: availability-credentials
+        ports:
+        - containerPort: 4005
+      imagePullSecrets: 
+      - name: regcred
+  replicas: 2
+  selector:
+    matchLabels:
+      env: {{ .Values.deployment.labels.env }}
+      appName: availability-app

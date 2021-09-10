@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: availability-service
+  namespace: availability
+spec:
+  type: {{ .Values.services.type }}
+  selector:
+    env: {{ .Values.deployment.labels.env }}
+    appName: availability-app
+  ports:
+  - targetPort: {{ .Values.services.port }}
+    port: {{ .Values.services.port }}
+    nodePort: {{ .Values.services.nodePort }}
