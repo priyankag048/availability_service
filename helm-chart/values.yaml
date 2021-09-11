@@ -1,0 +1,13 @@
+config:
+  allowDelete: "true"
+secrets:
+  username: "cHJpeWFua2E="
+  password: "dGVzdDEyMw=="
+deployment:
+  image: priyankaguha/availability:2
+  labels:
+    env: 'dev'
+services:
+  type: NodePort
+  port: 4005
+  nodePort: 30002

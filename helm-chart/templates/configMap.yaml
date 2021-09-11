@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+    name: 'availability-config'
+    namespace: 'availability'
+data:
+    ALLOW_DELETE: {{ .Values.config.allowDelete | quote }}

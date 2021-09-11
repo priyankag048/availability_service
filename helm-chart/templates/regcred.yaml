@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: regcred
+    namespace: availability
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: {{ .Values.secrets.regSecret | quote }}
+    
