@@ -7,8 +7,7 @@ const authentication = (req, res, next) => {
     .from(req.headers.authorization.replace('Basic ', ''), 'base64')
     .toString()
     .split(':');
-  if (username === Buffer.from(BASIC_AUTH_USER, 'base64').toString()
-    && password === Buffer.from(PASSWORD, 'base64').toString()) {
+  if (username === BASIC_AUTH_USER && password === PASSWORD) {
     next();
   } else {
     res.status(401).json({ message: 'UNAUTHORIZED' });
