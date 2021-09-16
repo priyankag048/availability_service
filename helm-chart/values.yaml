@@ -1,8 +1,9 @@
 config:
   allowDelete: "true"
 secrets:
-  username: "cHJpeWFua2E="
-  password: "dGVzdDEyMw=="
+  username: ""
+  password: ""
+  regSecret: ""
 deployment:
   image: priyankaguha/availability:2
   labels:
