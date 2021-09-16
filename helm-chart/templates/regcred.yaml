@@ -4,7 +4,7 @@ data:
 kind: Secret
 metadata:
   name: regcred
-  namespace: availability
+  namespace: {{ .Values.namespace }}
 type: kubernetes.io/dockerconfigjson
 
     

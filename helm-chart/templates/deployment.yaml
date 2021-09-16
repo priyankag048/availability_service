@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       name: availability-app
-      namespace: availability
+      namespace: {{ .Values.namespace }}
       labels:
         env: {{ .Values.deployment.labels.env }}
         appName: availability-app
