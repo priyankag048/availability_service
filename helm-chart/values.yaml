@@ -4,7 +4,7 @@ secrets:
   username: "cHJpeWFua2E="
   password: "dGVzdDEyMw=="
 deployment:
-  image: priyankaguha/availability:1
+  image: priyankaguha/availability:2
   labels:
     env: 'dev'
 services:
