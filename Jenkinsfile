@@ -8,7 +8,7 @@ pipeline {
       steps {
         echo 'Initializing Continuous Integration'
           checkout([$class: 'GitSCM',
-                    branches: [[name: "origin/dev"]],
+                    branches: [[name: "origin/main"]],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'LocalBranch']],
                     submoduleCfg: []])

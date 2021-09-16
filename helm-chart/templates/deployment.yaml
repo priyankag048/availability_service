@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: availability-app
-  namespace: availability
+  namespace: {{ .Values.namespace }}
 spec:
   template:
     metadata:
